@@ -1,0 +1,23 @@
+graph TD
+    Start((Début)) --> Login[Page de Connexion]
+    Login -->|Nouveau compte| Register[Page d'Inscription]
+    Login -->|Connexion réussie| Home[Page d'Accueil]
+    Register -->|Inscription réussie| Home
+
+    Home -->|Navigation| Bilan[Bilan Moteur]
+    Home -->|Navigation| Program[Programme]
+    Home -->|Navigation| Results[Résultats]
+    Home -->|Navigation| Settings[Paramètres]
+
+    Bilan -->|Sélection Test| TestDetail[Détail du Test]
+    TestDetail -->|Démarrer| TestRun[Exécution du Test]
+    TestRun -->|Minuteur terminé| Evaluation[Évaluation]
+    Evaluation -->|Enregistrer| Bilan
+
+    Program -->|Sélection Séance| SessionDetail[Détail Séance]
+    SessionDetail -->|Démarrer| SessionRun[Exécution Séance]
+    SessionRun -->|Terminer| Program
+
+    Settings -->|Modifier Profil| EditProfile[Édition Profil]
+    Settings -->|Changer Thème| Theme[Toggle Dark/Light]
+    Settings -->|Déconnexion| Login
